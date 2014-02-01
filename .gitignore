@@ -1,0 +1,7 @@
+.project
+.buildpath
+.settings
+assets/*
+protected/runtime/*
+protected/runtime/gii-1.1.13/*
+protected/admin/runtime/*
