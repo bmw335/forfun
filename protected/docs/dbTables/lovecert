@@ -1,0 +1,12 @@
+CREATE TABLE `lovecert` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `lover_1_name` varchar(20) NOT NULL,
+  `lover_2_name` varchar(20) NOT NULL,
+  `promise` varchar(200) DEFAULT NULL,
+  `countDownYear` tinyint(4) NOT NULL,
+  `public_date` date DEFAULT '1970-01-01',
+  `is_draft` tinyint(4) NOT NULL DEFAULT '1',
+  `timestamp` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
