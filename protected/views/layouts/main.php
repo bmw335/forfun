@@ -31,8 +31,9 @@
 			'items'=>array(
 				array('label'=>'用户主页(测试)', 'url'=>array('/user/index')),
 				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Search', 'url'=>array('/site/search')),
 				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Management', 'url'=>array('/admin'), 'visible'=>!Yii::app()->user->isGuest),
 				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
 				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),

@@ -33,6 +33,16 @@ class SiteController extends Controller
 	}
 
 	/**
+	 * This is the action for searching a certificate
+	 */
+	public function actionSearch()
+	{
+		// renders the view file 'protected/views/site/search.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('search');
+	}
+	
+	/**
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError()
@@ -45,7 +55,7 @@ class SiteController extends Controller
 				$this->render('error', $error);
 		}
 	}
-
+		
 	/**
 	 * Displays the contact page
 	 */
