@@ -1,27 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "lc_user".
+ * This is the model class for table "lc_password".
  *
- * The followings are the available columns in table 'lc_user':
- * @property integer $id
- * @property string $qq_uid
- * @property string $real_name
- * @property string $nick_name
- * @property integer $is_male
+ * The followings are the available columns in table 'lc_password':
+ * @property integer $user_id
+ * @property string $login_name
+ * @property string $password
+ * @property string $question1
+ * @property string $answer1
+ * @property string $question2
+ * @property string $answer2
  * @property string $email
- * @property string $birthday
- * @property string $register_time
- * @property integer $point
  */
-class User extends CActiveRecord
+class Password extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'lc_user';
+		return 'lc_password';
 	}
 
 	/**
@@ -32,15 +31,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('qq_uid, nick_name', 'required'),
-			array('is_male, point', 'numerical', 'integerOnly'=>true),
-			array('qq_uid, email', 'length', 'max'=>320),
-			array('real_name', 'length', 'max'=>64),
-			array('nick_name', 'length', 'max'=>128),
-			array('birthday, register_time', 'safe'),
+			array('user_id, login_name, password, question1, answer1, question2, answer2, email', 'required'),
+			array('user_id', 'numerical', 'integerOnly'=>true),
+			array('login_name, password, question1, answer1, question2, answer2', 'length', 'max'=>256),
+			array('email', 'length', 'max'=>64),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, qq_uid, real_name, nick_name, is_male, email, birthday, register_time, point', 'safe', 'on'=>'search'),
+			array('user_id, login_name, password, question1, answer1, question2, answer2, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,15 +58,14 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id' => 'ID',
-			'qq_uid' => 'Qq Uid',
-			'real_name' => 'Real Name',
-			'nick_name' => 'Nick Name',
-			'is_male' => 'Is Male',
+			'user_id' => 'User',
+			'login_name' => 'Login Name',
+			'password' => 'Password',
+			'question1' => 'Question1',
+			'answer1' => 'Answer1',
+			'question2' => 'Question2',
+			'answer2' => 'Answer2',
 			'email' => 'Email',
-			'birthday' => 'Birthday',
-			'register_time' => 'Register Time',
-			'point' => 'Point',
 		);
 	}
 
@@ -91,15 +87,14 @@ class User extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id',$this->id);
-		$criteria->compare('qq_uid',$this->qq_uid,true);
-		$criteria->compare('real_name',$this->real_name,true);
-		$criteria->compare('nick_name',$this->nick_name,true);
-		$criteria->compare('is_male',$this->is_male);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('login_name',$this->login_name,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('question1',$this->question1,true);
+		$criteria->compare('answer1',$this->answer1,true);
+		$criteria->compare('question2',$this->question2,true);
+		$criteria->compare('answer2',$this->answer2,true);
 		$criteria->compare('email',$this->email,true);
-		$criteria->compare('birthday',$this->birthday,true);
-		$criteria->compare('register_time',$this->register_time,true);
-		$criteria->compare('point',$this->point);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -110,7 +105,7 @@ class User extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return User the static model class
+	 * @return Password the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

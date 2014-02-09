@@ -4,20 +4,24 @@
  * This is the model class for table "lc_certificate".
  *
  * The followings are the available columns in table 'lc_certificate':
- * @property string $cid
- * @property string $uid_1
- * @property string $uid_2
+ * @property integer $id
+ * @property integer $user_id
+ * @property integer $is_verified
+ * @property string $lover_1_name
+ * @property string $lover_1_province
+ * @property string $lover_1_city
+ * @property string $lover_1_id_number
+ * @property string $lover_2_name
+ * @property string $lover_2_province
+ * @property string $lover_2_city
+ * @property string $lover_2_id_number
  * @property string $photo_path
- * @property string $photo_name
  * @property string $love_oath
+ * @property integer $count_down_month
+ * @property string $public_date
+ * @property integer $is_draft
  * @property string $create_time
- * @property integer $status
- * @property string $publish_time
- * @property integer $visits
- *
- * The followings are the available model relations:
- * @property User $uid2
- * @property User $uid1
+ * @property string $submit_time
  */
 class Certificate extends CActiveRecord
 {
@@ -37,14 +41,17 @@ class Certificate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('uid_1, uid_2, love_oath, create_time, publish_time, visits', 'required'),
-			array('status, visits', 'numerical', 'integerOnly'=>true),
-			array('uid_1, uid_2', 'length', 'max'=>10),
-			array('photo_path', 'length', 'max'=>256),
-			array('photo_name', 'length', 'max'=>16),
+			array('user_id, lover_1_name, lover_1_province, lover_1_city, lover_2_name, lover_2_province, lover_2_city, photo_path, love_oath, count_down_month', 'required'),
+			array('user_id, is_verified, count_down_month, is_draft', 'numerical', 'integerOnly'=>true),
+			array('lover_1_name, lover_1_province, lover_1_city', 'length', 'max'=>64),
+			array('lover_1_id_number, lover_2_province, lover_2_city, photo_path', 'length', 'max'=>255),
+			array('lover_2_name', 'length', 'max'=>20),
+			array('lover_2_id_number', 'length', 'max'=>32),
+			array('love_oath', 'length', 'max'=>200),
+			array('public_date, create_time, submit_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('cid, uid_1, uid_2, photo_path, photo_name, love_oath, create_time, status, publish_time, visits', 'safe', 'on'=>'search'),
+			array('id, user_id, is_verified, lover_1_name, lover_1_province, lover_1_city, lover_1_id_number, lover_2_name, lover_2_province, lover_2_city, lover_2_id_number, photo_path, love_oath, count_down_month, public_date, is_draft, create_time, submit_time', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +63,6 @@ class Certificate extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'uid2' => array(self::BELONGS_TO, 'User', 'uid_2'),
-			'uid1' => array(self::BELONGS_TO, 'User', 'uid_1'),
 		);
 	}
 
@@ -67,16 +72,24 @@ class Certificate extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'cid' => 'Cid',
-			'uid_1' => 'User ID of the certificate creator',
-			'uid_2' => 'User ID of the Beloved',
+			'id' => 'ID',
+			'user_id' => 'User',
+			'is_verified' => 'Is Verified',
+			'lover_1_name' => 'Lover 1 Name',
+			'lover_1_province' => 'Lover 1 Province',
+			'lover_1_city' => 'Lover 1 City',
+			'lover_1_id_number' => 'Lover 1 Id Number',
+			'lover_2_name' => 'Lover 2 Name',
+			'lover_2_province' => 'Lover 2 Province',
+			'lover_2_city' => 'Lover 2 City',
+			'lover_2_id_number' => 'Lover 2 Id Number',
 			'photo_path' => 'Photo Path',
-			'photo_name' => 'Photo Name',
 			'love_oath' => 'Love Oath',
+			'count_down_month' => 'Count Down Month',
+			'public_date' => 'Public Date',
+			'is_draft' => 'Is Draft',
 			'create_time' => 'Create Time',
-			'status' => 'Status',
-			'publish_time' => 'Publish Time',
-			'visits' => 'Visits',
+			'submit_time' => 'Submit Time',
 		);
 	}
 
@@ -98,16 +111,24 @@ class Certificate extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('cid',$this->cid,true);
-		$criteria->compare('uid_1',$this->uid_1,true);
-		$criteria->compare('uid_2',$this->uid_2,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('user_id',$this->user_id);
+		$criteria->compare('is_verified',$this->is_verified);
+		$criteria->compare('lover_1_name',$this->lover_1_name,true);
+		$criteria->compare('lover_1_province',$this->lover_1_province,true);
+		$criteria->compare('lover_1_city',$this->lover_1_city,true);
+		$criteria->compare('lover_1_id_number',$this->lover_1_id_number,true);
+		$criteria->compare('lover_2_name',$this->lover_2_name,true);
+		$criteria->compare('lover_2_province',$this->lover_2_province,true);
+		$criteria->compare('lover_2_city',$this->lover_2_city,true);
+		$criteria->compare('lover_2_id_number',$this->lover_2_id_number,true);
 		$criteria->compare('photo_path',$this->photo_path,true);
-		$criteria->compare('photo_name',$this->photo_name,true);
 		$criteria->compare('love_oath',$this->love_oath,true);
+		$criteria->compare('count_down_month',$this->count_down_month);
+		$criteria->compare('public_date',$this->public_date,true);
+		$criteria->compare('is_draft',$this->is_draft);
 		$criteria->compare('create_time',$this->create_time,true);
-		$criteria->compare('status',$this->status);
-		$criteria->compare('publish_time',$this->publish_time,true);
-		$criteria->compare('visits',$this->visits);
+		$criteria->compare('submit_time',$this->submit_time,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

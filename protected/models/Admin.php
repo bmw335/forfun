@@ -4,10 +4,9 @@
  * This is the model class for table "lc_admin".
  *
  * The followings are the available columns in table 'lc_admin':
- * @property integer $aid
- * @property string $name
+ * @property integer $id
+ * @property string $user_name
  * @property string $password
- * @property integer $role
  * @property string $email
  */
 class Admin extends CActiveRecord
@@ -28,13 +27,12 @@ class Admin extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, password, role, email', 'required'),
-			array('role', 'numerical', 'integerOnly'=>true),
-			array('name, password', 'length', 'max'=>64),
+			array('user_name, password, email', 'required'),
+			array('user_name, password', 'length', 'max'=>64),
 			array('email', 'length', 'max'=>320),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('aid, name, password, role, email', 'safe', 'on'=>'search'),
+			array('id, user_name, password, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,10 +53,9 @@ class Admin extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'aid' => 'Aid',
-			'name' => 'Name',
+			'id' => 'ID',
+			'user_name' => 'User Name',
 			'password' => 'Password',
-			'role' => 'Role',
 			'email' => 'Email',
 		);
 	}
@@ -81,10 +78,9 @@ class Admin extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('aid',$this->aid);
-		$criteria->compare('name',$this->name,true);
+		$criteria->compare('id',$this->id);
+		$criteria->compare('user_name',$this->user_name,true);
 		$criteria->compare('password',$this->password,true);
-		$criteria->compare('role',$this->role);
 		$criteria->compare('email',$this->email,true);
 
 		return new CActiveDataProvider($this, array(
