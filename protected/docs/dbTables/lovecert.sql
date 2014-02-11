@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50611
 File Encoding         : 65001
 
-Date: 2014-02-09 23:27:46
+Date: 2014-02-11 21:29:39
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,12 @@ CREATE TABLE `lc_admin` (
   `password` varchar(64) NOT NULL,
   `email` varchar(320) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lc_admin
+-- ----------------------------
+INSERT INTO `lc_admin` VALUES ('1', 'admin', 'admin', '');
 
 -- ----------------------------
 -- Table structure for lc_certificate
@@ -54,6 +59,11 @@ CREATE TABLE `lc_certificate` (
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
+-- Records of lc_certificate
+-- ----------------------------
+INSERT INTO `lc_certificate` VALUES ('7', '1', '\0', 'aaa', 'province', 'city', null, 'bb', 'province', 'city', null, 'photo_path', 'cc', '12', '1970-01-01', '', '2014-02-09 16:18:39', null);
+
+-- ----------------------------
 -- Table structure for lc_password
 -- ----------------------------
 DROP TABLE IF EXISTS `lc_password`;
@@ -67,6 +77,10 @@ CREATE TABLE `lc_password` (
   `answer2` varchar(256) NOT NULL,
   `email` varchar(64) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lc_password
+-- ----------------------------
 
 -- ----------------------------
 -- Table structure for lc_user
@@ -84,3 +98,8 @@ CREATE TABLE `lc_user` (
   `point` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of lc_user
+-- ----------------------------
+INSERT INTO `lc_user` VALUES ('1', '164140227', '方梁康', 'flk', '', 'fangliangkang@gmail.com', '1986-09-25', '2014-02-09 00:00:00', '100');
