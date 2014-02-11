@@ -5,16 +5,16 @@
 
 <div class="view">
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('uid')); ?>:</b>
-	<?php echo CHtml::link(CHtml::encode($data->uid), array('view', 'id'=>$data->uid)); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
+	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('family_name')); ?>:</b>
-	<?php echo CHtml::encode($data->family_name); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('qq_uid')); ?>:</b>
+	<?php echo CHtml::encode($data->qq_uid); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('given_name')); ?>:</b>
-	<?php echo CHtml::encode($data->given_name); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('real_name')); ?>:</b>
+	<?php echo CHtml::encode($data->real_name); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('nick_name')); ?>:</b>
@@ -38,36 +38,8 @@
 	<?php echo CHtml::encode($data->register_time); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('nationality')); ?>:</b>
-	<?php echo CHtml::encode($data->nationality); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('country')); ?>:</b>
-	<?php echo CHtml::encode($data->country); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('province')); ?>:</b>
-	<?php echo CHtml::encode($data->province); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('city')); ?>:</b>
-	<?php echo CHtml::encode($data->city); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('town')); ?>:</b>
-	<?php echo CHtml::encode($data->town); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('organization')); ?>:</b>
-	<?php echo CHtml::encode($data->organization); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('identity_type')); ?>:</b>
-	<?php echo CHtml::encode($data->identity_type); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('identity_id')); ?>:</b>
-	<?php echo CHtml::encode($data->identity_id); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('point')); ?>:</b>
+	<?php echo CHtml::encode($data->point); ?>
 	<br />
 
 	*/ ?>

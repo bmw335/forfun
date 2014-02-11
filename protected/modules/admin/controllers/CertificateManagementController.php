@@ -71,7 +71,7 @@ class CertificateManagementController extends Controller
 		{
 			$model->attributes=$_POST['Certificate'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->cid));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -95,7 +95,7 @@ class CertificateManagementController extends Controller
 		{
 			$model->attributes=$_POST['Certificate'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->cid));
+				$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('update',array(

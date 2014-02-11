@@ -3,7 +3,6 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Management'=>'index.php?r=admin',
 	'Users',
 );
 

@@ -20,21 +20,15 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'name'); ?>
+		<?php echo $form->labelEx($model,'user_name'); ?>
+		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'user_name'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'password'); ?>
 		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>64)); ?>
 		<?php echo $form->error($model,'password'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'role'); ?>
-		<?php echo $form->textField($model,'role'); ?>
-		<?php echo $form->error($model,'role'); ?>
 	</div>
 
 	<div class="row">

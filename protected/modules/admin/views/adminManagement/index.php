@@ -2,9 +2,7 @@
 /* @var $this AdminManagementController */
 /* @var $dataProvider CActiveDataProvider */
 
-
 $this->breadcrumbs=array(
-	'Management'=>'index.php?r=admin',
 	'Admins',
 );
 

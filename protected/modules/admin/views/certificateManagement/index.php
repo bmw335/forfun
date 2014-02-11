@@ -3,7 +3,6 @@
 /* @var $dataProvider CActiveDataProvider */
 
 $this->breadcrumbs=array(
-	'Management'=>'index.php?r=admin',
 	'Certificates',
 );
 
@@ -13,7 +12,7 @@ $this->menu=array(
 );
 ?>
 
-<h1>Love Certificates</h1>
+<h1>Certificates</h1>
 
 <?php $this->widget('zii.widgets.CListView', array(
 	'dataProvider'=>$dataProvider,

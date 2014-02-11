@@ -13,8 +13,8 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$admin=Admin::model()->find('name=:name AND password=:password',
-			array(':name'=>$this->username, ':password'=>$this->password));
+		$admin=Admin::model()->find('user_name=:user_name AND password=:password',
+			array(':user_name'=>$this->username, ':password'=>$this->password));
 		if($admin==null)
 			$this->errorCode=self::ERROR_PASSWORD_INVALID;
 		else
