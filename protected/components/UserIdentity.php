@@ -35,9 +35,11 @@ class UserIdentity extends CUserIdentity
 			else
 				$this->errorCode=self::ERROR_NONE;
 		}
-		$this->setState('id', $user->id);
-		$this->setState('nick_name', $user->nick_name);
-		$this->setState('role', $user->role);
+		if(!$this->errorCode){
+			$this->setState('id', $user->id);
+			$this->setState('nick_name', $user->nick_name);
+			$this->setState('role', $user->role);
+		}
 		return !$this->errorCode;
 		
 		/*

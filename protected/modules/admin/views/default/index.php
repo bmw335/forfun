@@ -20,6 +20,5 @@ You may customize this page by editing <tt><?php echo __FILE__; ?></tt>
 链接：
 <h1>Management tools for <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
 
-<p>Manage <a href="admin/userManagement">user accounts</a>.</p>
-<p>Manage <a href="admin/certificateManagement">love certificates</a>.</p>
-<p>Manage <a href="admin/adminManagement">admin accounts</a>.</p>
+<p>Manage <a href="<?php echo Yii::app()->createUrl('admin/userManagement');?>">user accounts</a>.</p>
+<p>Manage <a href="<?php echo Yii::app()->createUrl('admin/certificateManagement');?>">love certificates</a>.</p>

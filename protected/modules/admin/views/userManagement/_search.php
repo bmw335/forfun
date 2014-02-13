@@ -17,18 +17,28 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'nick_name'); ?>
+		<?php echo $form->textField($model,'nick_name',array('size'=>60,'maxlength'=>128)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'qq_uid'); ?>
 		<?php echo $form->textField($model,'qq_uid',array('size'=>60,'maxlength'=>320)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'real_name'); ?>
-		<?php echo $form->textField($model,'real_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->label($model,'user_name'); ?>
+		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>64)); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'nick_name'); ?>
-		<?php echo $form->textField($model,'nick_name',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->label($model,'real_name'); ?>
+		<?php echo $form->textField($model,'real_name',array('size'=>60,'maxlength'=>64)); ?>
 	</div>
 
 	<div class="row">

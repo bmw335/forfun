@@ -20,21 +20,39 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'nick_name'); ?>
+		<?php echo $form->textField($model,'nick_name',array('size'=>60,'maxlength'=>128)); ?>
+		<?php echo $form->error($model,'nick_name'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role'); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'qq_uid'); ?>
 		<?php echo $form->textField($model,'qq_uid',array('size'=>60,'maxlength'=>320)); ?>
 		<?php echo $form->error($model,'qq_uid'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'real_name'); ?>
-		<?php echo $form->textField($model,'real_name',array('size'=>60,'maxlength'=>64)); ?>
-		<?php echo $form->error($model,'real_name'); ?>
+		<?php echo $form->labelEx($model,'user_name'); ?>
+		<?php echo $form->textField($model,'user_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'user_name'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'nick_name'); ?>
-		<?php echo $form->textField($model,'nick_name',array('size'=>60,'maxlength'=>128)); ?>
-		<?php echo $form->error($model,'nick_name'); ?>
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'password'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'real_name'); ?>
+		<?php echo $form->textField($model,'real_name',array('size'=>60,'maxlength'=>64)); ?>
+		<?php echo $form->error($model,'real_name'); ?>
 	</div>
 
 	<div class="row">
