@@ -5,7 +5,10 @@
  *
  * The followings are the available columns in table 'lc_user':
  * @property integer $id
+ * @property integer $role
  * @property string $qq_uid
+ * @property string $user_name
+ * @property string $password
  * @property string $real_name
  * @property string $nick_name
  * @property integer $is_male
@@ -32,15 +35,15 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('qq_uid, nick_name', 'required'),
-			array('is_male, point', 'numerical', 'integerOnly'=>true),
+			array('nick_name', 'required'),
+			array('role, is_male, point', 'numerical', 'integerOnly'=>true),
 			array('qq_uid, email', 'length', 'max'=>320),
-			array('real_name', 'length', 'max'=>64),
+			array('user_name, password, real_name', 'length', 'max'=>64),
 			array('nick_name', 'length', 'max'=>128),
 			array('birthday, register_time', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, qq_uid, real_name, nick_name, is_male, email, birthday, register_time, point', 'safe', 'on'=>'search'),
+			array('id, role, qq_uid, user_name, password, real_name, nick_name, is_male, email, birthday, register_time, point', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +65,10 @@ class User extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'role' => 'Role',
 			'qq_uid' => 'Qq Uid',
+			'user_name' => 'User Name',
+			'password' => 'Password',
 			'real_name' => 'Real Name',
 			'nick_name' => 'Nick Name',
 			'is_male' => 'Is Male',
@@ -92,7 +98,10 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('role',$this->role);
 		$criteria->compare('qq_uid',$this->qq_uid,true);
+		$criteria->compare('user_name',$this->user_name,true);
+		$criteria->compare('password',$this->password,true);
 		$criteria->compare('real_name',$this->real_name,true);
 		$criteria->compare('nick_name',$this->nick_name,true);
 		$criteria->compare('is_male',$this->is_male);

@@ -4,7 +4,6 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>（这是一个简单的用户主页）</h1>
 <div>
 	刘峰
 	<br/>
