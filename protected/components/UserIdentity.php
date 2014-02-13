@@ -20,7 +20,7 @@ class UserIdentity extends CUserIdentity
 				//new registered user, save it.
 				$user = new User();
 				$user->qq_uid = $this->username;
-				$user->nick_name = "mock_nick_name";
+				$user->nick_name = "ImNormalUser";
 				if(!$user->save()){
 					throw new CHttpException ( 500, '数据库错误' );
 				}
@@ -36,6 +36,7 @@ class UserIdentity extends CUserIdentity
 				$this->errorCode=self::ERROR_NONE;
 		}
 		$this->setState('id', $user->id);
+		$this->setState('nick_name', $user->nick_name);
 		$this->setState('role', $user->role);
 		return !$this->errorCode;
 		

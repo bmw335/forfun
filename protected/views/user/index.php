@@ -5,9 +5,9 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 <div>
-	刘峰
+	昵称：<?php echo Yii::app()->user->nick_name;?>
 	<br/>
-	积分:150
+	积分:<?php echo $point;?>
 	<br/>
 	<?php if($cert_id == null){?>
 	<a href="<?php echo Yii::app()->baseUrl; ?>/index.php/cert/editCert">创建证书</a>

@@ -31,7 +31,9 @@ class UserController extends Controller
 		if($certificate){
 			$cert_id = $certificate->id;
 		}
-		$this->render('index', array("cert_id" => $cert_id));
+		$user = User::model()->findByPk(Yii::app()->user->id);
+		$this->render('index', array("cert_id" => $cert_id,
+		"point" => $user->point));
 	}
 	
 	public function actionSaveProfile()

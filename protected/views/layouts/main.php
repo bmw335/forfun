@@ -33,9 +33,9 @@
 				//array('label'=>'Search', 'url'=>array('/site/search')),
 				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'我的证书', 'url'=>array('/user/index')),
-				array('label'=>'Management', 'url'=>array('/admin'), 'visible'=>!Yii::app()->user->isGuest),
-				array('label'=>'[hidden later: Admin Login]', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'[Admin Logout] ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+				array('label'=>'Management', 'url'=>array('/admin/default/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->role != 0),
+				array('label'=>'管理员(稍后隐藏)', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
 			),
 		)); ?>
 	</div><!-- mainmenu -->
