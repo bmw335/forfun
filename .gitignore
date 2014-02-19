@@ -5,4 +5,5 @@ assets/*
 protected/runtime/*
 protected/runtime/gii-1.1.13/*
 protected/admin/runtime/*
+protected/API/comm/inc.php
 *.bak
