@@ -1,5 +1,5 @@
 <?php
-
+require_once(dirname(__FILE__)."/../API/qqConnectAPI.php");
 class QqLoginController extends Controller
 {
 	public function actionIndex()
@@ -7,6 +7,29 @@ class QqLoginController extends Controller
 		$this->render('index');
 	}
 	
+	public function actionLogin()
+	{	
+		$code = Yii::app ()->request->getParam ( 'code' );
+		$qc = new QC();
+		if(empty($code)){
+			$qc->qq_login();
+		}else{
+			$access_code = $qc->qq_callback();
+			$openID = $qc->get_openid();
+			
+			$userIdentity = new UserIdentity($openID,'');
+			$userIdentity->setIsQqLogin(true);
+			if($userIdentity->authenticate()){
+				Yii::app()->user->login($userIdentity);
+				$this->redirect(Yii::app()->user->returnUrl);
+			}else{
+				echo $identity->errorMessage;
+			}
+		}
+	}
+	
+	
+	/*
 	public function actionLogin()
 	{
 		//FIXME mock qq OAuth2.0 workflow
@@ -25,4 +48,5 @@ class QqLoginController extends Controller
 			echo $identity->errorMessage; 
 		}
 	}
+	*/
 }

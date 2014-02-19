@@ -20,7 +20,7 @@ class UserIdentity extends CUserIdentity
 				//new registered user, save it.
 				$user = new User();
 				$user->qq_uid = $this->username;
-				$user->nick_name = "ImNormalUser";
+				$user->nick_name = "ImNormalUser(openID:".$user->qq_uid.")";
 				if(!$user->save()){
 					throw new CHttpException ( 500, '数据库错误' );
 				}
