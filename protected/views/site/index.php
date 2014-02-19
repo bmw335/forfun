@@ -4,4 +4,7 @@
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<div class="input-group input-group-lg" id="search-bar">
+  <input type="text" class="form-control">
+  <span id="search-button" class="input-group-addon ">Go</span>
+</div>

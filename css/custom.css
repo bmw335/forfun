@@ -1,0 +1,17 @@
+@CHARSET "UTF-8";
+
+/*
+ * Index page
+ */
+#search-button {
+	background-color : #e50909;
+	color: #fff;
+	width:100px;
+	border: none;
+}
+
+#search-bar {
+	margin: 0 auto;
+	width: 540px;
+	padding-top : 280px;
+}
