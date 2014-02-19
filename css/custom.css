@@ -4,14 +4,28 @@
  * Index page
  */
 #search-button {
-	background-color : #e50909;
 	color: #fff;
 	width:100px;
 	border: none;
+	background: #e50909 url("/img/go.png") no-repeat center;
 }
 
 #search-bar {
 	margin: 0 auto;
 	width: 540px;
 	padding-top : 280px;
+}
+
+#footer .container{
+	height: 30px;
+}
+
+#qq-login {
+	position: fixed;
+	right:0px;
+	bottom: 70px;
+	width: 156px;
+	height: 64px;
+	border: none;
+	background:url("/img/qq-login.png") no-repeat center;
 }
