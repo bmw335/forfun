@@ -31,7 +31,7 @@
 		<?php $this->widget('zii.widgets.CMenu',array(
 			'items'=>array(
 				array('label'=>'Home', 'url'=>array('/site/index')),
-				//array('label'=>'Search', 'url'=>array('/site/search')),
+				array('label'=>'Search', 'url'=>array('/cert/searchCert')),
 				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
 				array('label'=>'我的证书', 'url'=>array('/user/index')),
 				array('label'=>'Management', 'url'=>array('/admin/default/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->role != 0),

@@ -31,6 +31,7 @@
 
 <body>
 
+	</div><!-- mainmenu -->
     <!-- Wrap all page content here -->
     <div id="wrap">
 
@@ -70,6 +71,18 @@
 
       <!-- Begin page content -->
       <div class="container">
+	  <div id="mainmenu">
+		<?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'Search', 'url'=>array('/cert/searchCert')),
+				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'我的证书', 'url'=>array('/user/index')),
+				array('label'=>'Management', 'url'=>array('/admin/default/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->role != 0),
+				array('label'=>'管理员(稍后隐藏)', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+			),
+		)); ?>
       	<?php echo $content; ?>
       </div>
     </div>
