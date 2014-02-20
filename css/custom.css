@@ -16,6 +16,10 @@
 	padding-top : 280px;
 }
 
+#search-bar .form-control{
+	width: 440px;
+}
+
 #footer .container{
 	height: 30px;
 }
@@ -24,8 +28,5 @@
 	position: fixed;
 	right:0px;
 	bottom: 70px;
-	width: 156px;
-	height: 64px;
 	border: none;
-	background:url("/img/qq-login.png") no-repeat center;
 }
