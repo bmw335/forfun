@@ -158,6 +158,12 @@ class CertController extends Controller
 		return $certificates;
 	}
 		
+	public function actionUploadImage(){
+		$uploadHandler = new UploadHandler();
+		$uploadHandler->post();
+		echo 'ok';
+	}
+	
 	/*
 	 * create/edit the cert
 	 */
