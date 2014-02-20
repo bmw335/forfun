@@ -31,6 +31,16 @@ class SiteController extends Controller
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('index');
 	}
+	
+	/**
+	 * This is the default 'create' action after login
+	 */
+	public function actionCreate()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('create');
+	}
 
 	/**
 	 * This is the action for searching a certificate
