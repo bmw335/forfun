@@ -8,6 +8,13 @@ $this->pageTitle=Yii::app()->name;
 <!-- CSS to style the file input field as button and adjust the Bootstrap progress bars -->
 <link rel="stylesheet" href="<?php echo Yii::app()->request->baseUrl; ?>/css/jquery.fileupload.css">
 
+<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.ui.widget.js"></script>
+<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.iframe-transport.js"></script>
+<!-- The basic File Upload plugin -->
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fileupload.js"></script>
+
 <h1>（这是创建/修改证书页面）</h1>
 <form method=post action="" name="frm">
 	<input type="hidden" name="cert_id" value="<?php echo $certificate->id;?>">
@@ -66,15 +73,7 @@ function submit2() {
 }
 </script>
 
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
-<!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/vendor/jquery.ui.widget.js"></script>
-<!-- The Iframe Transport is required for browsers without support for XHR file uploads -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.iframe-transport.js"></script>
-<!-- The basic File Upload plugin -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fileupload.js"></script>
-<!-- Bootstrap JS is not required, but included for the responsive demo navigation -->
-<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/bootstrap.min.js"></script>
+
 <script>
 /*jslint unparam: true */
 /*global window, $ */

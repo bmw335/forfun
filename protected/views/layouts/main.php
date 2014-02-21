@@ -17,6 +17,10 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/sticky-footer-navbar.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/custom.css" rel="stylesheet">
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/create.css" rel="stylesheet">
+    
+        <!-- Placed at the end of the document so the pages load faster, but jquery file upload not work -->
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
     <!--[if lt IE 9]><script src="../../docs-assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
@@ -94,11 +98,5 @@
         <p class="text-muted">沪ICP备13008256-2号</p>
       </div>
     </div>
-
-
-
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>
