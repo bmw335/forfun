@@ -159,9 +159,17 @@ class CertController extends Controller
 	}
 		
 	public function actionUploadImage(){
-		$uploadHandler = new UploadHandler();
-		$uploadHandler->post();
-		echo 'ok';
+		$uploadHandler = new UploadHandler(null, false, null);
+		$result = $uploadHandler->post();
+		$splits = explode("/",$result["files"][0]->url);
+		$fileName = $splits[count($splits)-1];
+		return array("fileName" => $fileName);
+	}
+	
+	public function actionGetImage(){
+// 		$fileName = Yii::app()->request->getParam ( 'fileName' );
+		$uploadHandler = new UploadHandler(null, false, null);
+		$uploadHandler->get();
 	}
 	
 	/*
@@ -186,8 +194,15 @@ class CertController extends Controller
 	public function actionSaveCert()
 	{
 		$cert_id = Yii::app ()->request->getParam ( 'cert_id' );
+		$uploadedImageName = Yii::app ()->request->getParam ( 'uploadedImageName' );
+		
 		$lover_1_name = Yii::app ()->request->getParam ( 'lover_1_name' );
+		$lover_1_province = Yii::app ()->request->getParam ( 'lover_1_province' );
+		$lover_1_city = Yii::app ()->request->getParam ( 'lover_1_city' );
 		$lover_2_name = Yii::app ()->request->getParam ( 'lover_2_name' );
+		$lover_2_province = Yii::app ()->request->getParam ( 'lover_2_province' );
+		$lover_2_city = Yii::app ()->request->getParam ( 'lover_2_city' );
+		
 		$love_oath= Yii::app ()->request->getParam ( 'love_oath' );
 		$count_down_month = Yii::app ()->request->getParam ( 'count_down_month' );
 		
@@ -198,21 +213,18 @@ class CertController extends Controller
 		}else{
 			$certificate = new Certificate();
 		}
-		//FIXME use mock user id
-		$certificate->user_id = Yii::app()->params['mock_user_id'];
+		$certificate->user_id = Yii::app()->user->id;
 		$certificate->lover_1_name = $lover_1_name;
+		$certificate->lover_1_province = $lover_1_province;
+		$certificate->lover_1_city = $lover_1_city;
 		$certificate->lover_2_name = $lover_2_name;
+		$certificate->lover_2_province = $lover_2_province;
+		$certificate->lover_2_city = $lover_2_city;
 		$certificate->love_oath = $love_oath;
 		$certificate->count_down_month = $count_down_month;
 		//$lovecert->public_date = date ( 'Y-m-d H:i:s', time () );
 		$certificate->create_time = date ( 'Y-m-d H:i:s', time () );
-		
-		//FIXME mock it
-		$certificate->lover_1_province = "province";
-		$certificate->lover_1_city = "city";
-		$certificate->lover_2_province = "province";
-		$certificate->lover_2_city = "city";
-		$certificate->photo_path = "photo_path";
+		$certificate->photo_path = $uploadedImageName;
 		
 		//FIXME find a better way to handle the exception
 		if(!$certificate->save()){

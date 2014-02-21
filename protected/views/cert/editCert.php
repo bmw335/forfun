@@ -11,6 +11,9 @@ $this->pageTitle=Yii::app()->name;
 <h1>（这是创建/修改证书页面）</h1>
 <form method=post action="" name="frm">
 	<input type="hidden" name="cert_id" value="<?php echo $certificate->id;?>">
+	<img id="uploadedImage" src="<?php if(!empty($certificate->photo_path)){?><?php echo Yii::app()->request->baseUrl;?>/index.php/cert/getImage?download=1&file=<?php echo $certificate->photo_path;?><?php }?>" style="max-width:600px;height:auto;">
+	<input type="hidden" id="uploadedImageName" name="uploadedImageName">
+	<br/>
 	<span class="btn btn-success fileinput-button">
 		<i class="glyphicon glyphicon-plus"></i>
 		<span>Select files...</span>
@@ -19,11 +22,11 @@ $this->pageTitle=Yii::app()->name;
 	</span>
 	<fieldset>
 		<legend>你的</legend>
-		<label for="lover_1_name">姓名</label>
+		<label for="lover_1_name">姓名*</label>
 		<input type="text" name="lover_1_name" id="lover_1_name" value="<?php echo $certificate->lover_1_name;?>"/>
-		<label for="lover_1_province">省份</label>
+		<label for="lover_1_province">省份*</label>
 		<input type="text" name="lover_1_province" id="lover_1_province" value="<?php echo $certificate->lover_1_province;?>"/>
-		<label for="lover_1_city">城市</label>
+		<label for="lover_1_city">城市*</label>
 		<input type="text" name="lover_1_city" id="lover_1_city" value="<?php echo $certificate->lover_1_city;?>"/>
 		<label for="lover_1_id_number">身份证</label>
 		<input type="text" name="lover_1_id_number" id="lover_1_id_number" value="<?php echo $certificate->lover_1_id_number;?>"/>
@@ -31,22 +34,22 @@ $this->pageTitle=Yii::app()->name;
 	<br/>
 	<fieldset>
 		<legend>TA的</legend>
-		<label for="lover_2_name">姓名</label>
+		<label for="lover_2_name">姓名*</label>
 		<input type="text" name="lover_2_name" id="lover_2_name" value="<?php echo $certificate->lover_2_name;?>"/>
-		<label for="lover_2_province">省份</label>
+		<label for="lover_2_province">省份*</label>
 		<input type="text" name="lover_2_province" id="lover_2_province" value="<?php echo $certificate->lover_2_province;?>"/>
-		<label for="lover_2_city">城市</label>
+		<label for="lover_2_city">城市*</label>
 		<input type="text" name="lover_2_city" id="lover_2_city" value="<?php echo $certificate->lover_2_city;?>"/>
 		<label for="lover_2_id_number">身份证</label>
 		<input type="text" name="lover_2_id_number" id="lover_2_id_number" value="<?php echo $certificate->lover_2_id_number;?>"/>
 	</fieldset>
 	<br/>
 	<br/>
-	<label for="love_oath">爱的宣言</label>
+	<label for="love_oath">爱的宣言*</label>
 	<br/>
 	<textarea name="love_oath" id="love_oath" rows="5" cols="110"/><?php echo $certificate->love_oath;?></textarea>
 	<br/><br/>
-	<label for="count_down_month">倒计时公开期限</label>
+	<label for="count_down_month">倒计时公开期限*</label>
 	<br/>
 	<input type="text" name="count_down_month" id="count_down_month"  value="<?php echo $certificate->count_down_month;?>"/>月后公开
 	<br/>
@@ -86,6 +89,10 @@ $(function () {
         done: function (e, data) {
             $.each(data.result.files, function (index, file) {
                 $('<p/>').text(file.name).appendTo('#files');
+                var downloadParam = file.url.split("?");
+                downloadParam = downloadParam[downloadParam.length -1];
+            	$('#uploadedImage').attr("src", "<?php echo Yii::app()->request->baseUrl;?>/index.php/cert/getImage?"+downloadParam);
+            	$('#uploadedImageName').val(file.name);
             });
         },
         progressall: function (e, data) {
