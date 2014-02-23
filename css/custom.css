@@ -3,17 +3,21 @@
 /*
  * Index page
  */
+#wrap {
+	background-color : beige;
+}
+
 #search-button {
 	color: #fff;
 	width:100px;
 	border: none;
-	background: #e50909 url("/img/go.png") no-repeat center;
+	background: #e50909 url("../img/go.png") no-repeat center;
 }
 
 #search-bar {
 	margin: 0 auto;
 	width: 540px;
-	padding-top : 280px;
+	padding-top : 40px;
 }
 
 #search-bar .form-control{
@@ -29,4 +33,10 @@
 	right:0px;
 	bottom: 70px;
 	border: none;
+}
+
+.image-grid {
+	width: 80%;
+	max-width: 750px;
+	margin: 0 auto;
 }

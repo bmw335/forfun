@@ -10,6 +10,8 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/lovecert.ico">
 
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    
 	<!-- Bootstrap core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap.css" rel="stylesheet">
 

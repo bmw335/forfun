@@ -25,11 +25,23 @@ class SiteController extends Controller
 	 * This is the default 'index' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
+	
 	public function actionIndex()
 	{
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
-		$this->render('index');
+		
+		$data = array(
+				0=>array('id'=>1,'Image'=>'sample.png'),
+				1=>array('id'=>2,'Image'=>'sample.png'),
+				2=>array('id'=>3,'Image'=>'sample.png'),
+		);
+		
+		$dataProvider=new CArrayDataProvider($data); 
+		
+		$this->render('index', array(
+			'dataProvider'=>$dataProvider,
+		));
 	}
 	
 	/**
@@ -40,6 +52,16 @@ class SiteController extends Controller
 		// renders the view file 'protected/views/site/index.php'
 		// using the default layout 'protected/views/layouts/main.php'
 		$this->render('create');
+	}
+	
+	/**
+	 * This is the default 'bookDetail' action after login
+	 */
+	public function actionDetail()
+	{
+		// renders the view file 'protected/views/site/index.php'
+		// using the default layout 'protected/views/layouts/main.php'
+		$this->render('detail');
 	}
 
 	/**
