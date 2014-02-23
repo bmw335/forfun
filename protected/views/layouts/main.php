@@ -11,6 +11,7 @@
     <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/img/lovecert.ico">
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/background-change.js"></script>
     
 	<!-- Bootstrap core CSS -->
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/css/bootstrap.css" rel="stylesheet">
@@ -21,7 +22,6 @@
     <link href="<?php echo Yii::app()->request->baseUrl; ?>/css/create.css" rel="stylesheet">
     
         <!-- Placed at the end of the document so the pages load faster, but jquery file upload not work -->
-    <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.min.js"></script>
     <script src="<?php echo Yii::app()->request->baseUrl; ?>/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Just for debugging purposes. Don't actually copy this line! -->
@@ -58,12 +58,10 @@
             <a class="navbar-brand" href="#">Project name</a>
           </div>
           <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
+            <ul class="nav navbar-nav navbar-right">
               <li><a href="#contact">Contact</a></li>
               <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户A <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Action</a></li>
                   <li><a href="#">Another action</a></li>
@@ -104,4 +102,5 @@
       </div>
     </div>
 </body>
+
 </html>

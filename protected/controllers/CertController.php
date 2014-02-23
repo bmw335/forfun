@@ -202,6 +202,11 @@ class CertController extends Controller
 		$this->render ( 'saveCert');
 	}
 	
+	public function actionShowCert()
+	{
+		$this->render ( 'showCert');
+	}
+	
 	public function actionDeleteCert()
 	{
 	}
