@@ -14,12 +14,13 @@ $this->pageTitle=Yii::app()->name;
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.iframe-transport.js"></script>
 <!-- The basic File Upload plugin -->
 <script src="<?php echo Yii::app()->request->baseUrl; ?>/js/jquery.fileupload.js"></script>
+<script src="<?php echo Yii::app()->request->baseUrl; ?>/js/our/cert.js"></script>
 
 <h1>（这是创建/修改证书页面）</h1>
-<form method=post action="" name="frm">
+<form id="frm" method=post action="" name="frm">
 	<input type="hidden" name="cert_id" value="<?php echo $certificate->id;?>">
 	<img id="uploadedImage" src="<?php if(!empty($certificate->photo_path)){?><?php echo Yii::app()->request->baseUrl;?>/index.php/cert/getImage?download=1&file=<?php echo $certificate->photo_path;?><?php }?>" style="max-width:600px;height:auto;">
-	<input type="hidden" id="uploadedImageName" name="uploadedImageName">
+	<input type="hidden" id="uploadedImageName" name="uploadedImageName" value="<?php if(!empty($certificate->photo_path)){?><?php echo $certificate->photo_path;?><?php }?>">
 	<br/>
 	<span class="btn btn-success fileinput-button">
 		<i class="glyphicon glyphicon-plus"></i>
@@ -60,48 +61,8 @@ $this->pageTitle=Yii::app()->name;
 	<br/>
 	<input type="text" name="count_down_month" id="count_down_month"  value="<?php echo $certificate->count_down_month;?>"/>月后公开
 	<br/>
-	<input type="submit" value="保存草稿" onclick="submit1()"/>
-	<input type="submit" value="登记" onclick="submit2()"/>
+	<input type="submit" value="保存草稿" onclick="saveDraftCert()"/>
+	<input type="button" value="登记" onclick="validateAndSubmit();"/>
 </form>
 
-<script language="JavaScript">
-function submit1(){
-	frm.action = "<?php echo Yii::app()->baseUrl; ?>/index.php/cert/saveCert";
-}
-function submit2() {
-	frm.action = "<?php echo Yii::app()->baseUrl; ?>/index.php/cert/submitCert";
-}
-</script>
 
-
-<script>
-/*jslint unparam: true */
-/*global window, $ */
-$(function () {
-    'use strict';
-    // Change this to the location of your server-side upload handler:
-    var url = window.location.hostname === 'blueimp.github.io' ?
-                '//jquery-file-upload.appspot.com/' : '<?php echo Yii::app()->request->baseUrl; ?>/index.php/cert/uploadImage';
-    $('#fileupload').fileupload({
-        url: url,
-        dataType: 'json',
-        done: function (e, data) {
-            $.each(data.result.files, function (index, file) {
-                $('<p/>').text(file.name).appendTo('#files');
-                var downloadParam = file.url.split("?");
-                downloadParam = downloadParam[downloadParam.length -1];
-            	$('#uploadedImage').attr("src", "<?php echo Yii::app()->request->baseUrl;?>/index.php/cert/getImage?"+downloadParam);
-            	$('#uploadedImageName').val(file.name);
-            });
-        },
-        progressall: function (e, data) {
-            var progress = parseInt(data.loaded / data.total * 100, 10);
-            $('#progress .progress-bar').css(
-                'width',
-                progress + '%'
-            );
-        }
-    }).prop('disabled', !$.support.fileInput)
-        .parent().addClass($.support.fileInput ? undefined : 'disabled');
-});
-</script>

@@ -240,6 +240,7 @@ class CertController extends Controller
 	
 	public function actionSubmitCert()
 	{
-	
+		$cert_id = Yii::app ()->request->getParam ( 'cert_id' );
+		echo "ok";
 	}
 }

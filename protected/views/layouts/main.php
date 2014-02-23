@@ -32,6 +32,9 @@
     <![endif]-->
 	
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+	<script>
+		var BASE_URL="<?php print Yii::app()->request->baseUrl;?>";
+	</script>
 </head>
 
 <body>

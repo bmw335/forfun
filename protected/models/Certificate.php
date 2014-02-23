@@ -41,7 +41,7 @@ class Certificate extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, lover_1_name, lover_1_province, lover_1_city, lover_2_name, lover_2_province, lover_2_city, photo_path, love_oath, count_down_month', 'required'),
+			array('user_id', 'required'),
 			array('user_id, is_verified, count_down_month, is_draft', 'numerical', 'integerOnly'=>true),
 			array('lover_1_name, lover_1_province, lover_1_city', 'length', 'max'=>64),
 			array('lover_1_id_number, lover_2_province, lover_2_city, photo_path', 'length', 'max'=>255),
