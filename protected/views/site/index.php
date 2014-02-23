@@ -12,7 +12,7 @@ $this->pageTitle=Yii::app()->name;
    //否则后面跳转到QQ登录，授权页面时会直接缩小当前浏览器的窗口，而不是打开新窗口
 
    //官方demo  "_self" => "TencentLogin"
-   var A=window.open("<?php echo Yii::app()->baseUrl; ?>/index.php/qqLogin/login","_self", 
+   var A=window.open("<?php echo Yii::app()->baseUrl; ?>/index.php/login/qqLogin","_self", 
    "width=450,height=320,menubar=0,scrollbars=1,resizable=1,status=1,titlebar=0,toolbar=0,location=1");
  } 
 </script>
@@ -29,7 +29,7 @@ $this->pageTitle=Yii::app()->name;
 
 <form method=post action="<?php echo Yii::app()->baseUrl; ?>/index.php/cert/searchCert" name="index_search_form">
 	<div class="input-group input-group-lg" id="search-bar">
-		  <input type="text" class="form-control" placeholder="他/她常用的名字或昵称">
+		  <input type="text" name="name" class="form-control" placeholder="他/她常用的名字或昵称">
 		  <input type="hidden" name="province" id="province" class="form-control" placeholder="他/她所在的省份">
 		  <input type="hidden" name="city" id="city" class="form-control" placeholder="他/她所在的城市"> 	
 		  <!-- <span id="search-button" class="input-group-addon "></span> -->
@@ -90,12 +90,9 @@ $this->pageTitle=Yii::app()->name;
 
 
 <div id="qq-login">
-    <a href="#" onclick='qqLogin()'><img src="<?php echo Yii::app()->baseUrl; ?>/img/qq-login.png" class="img-responsive" alt="Responsive image"></a>   
+<?php if(Yii::app()->user->isGuest){?>
+	<a href="#" onclick='qqLogin()'><img src="<?php echo Yii::app()->baseUrl; ?>/img/qq-login.png" class="img-responsive" alt="Responsive image"></a>
+<?php }else{?>
+	<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout">Logout (<?php echo Yii::app()->user->name;?>)</a>
+<?php }?>
 </div>
-
-
-<script type="text/javascript">
-    QC.Login({
-       btnId:"qqLoginBtn"    //插入按钮的节点id
-});
-</script>

@@ -55,11 +55,19 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>">爱情证书<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png"></a>
           </div>
           <div class="collapse navbar-collapse">
-            <ul class="nav navbar-nav navbar-right">
-              <li><a href="#contact">Contact</a></li>
+            <ul class="nav navbar-nav">
+              <li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/user">我的证书</a></li>
+			<li>
+				<?php if(Yii::app()->user->isGuest){?>
+					<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/login">登录</a>
+				<?php }else{?>
+					<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout">Logout (<?php echo Yii::app()->user->name;?>)</a>
+				<?php }?>
+			</li>
+             <!-- 
               <li class="dropdown">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">用户A <b class="caret"></b></a>
                 <ul class="dropdown-menu">
@@ -72,6 +80,7 @@
                   <li><a href="#">One more separated link</a></li>
                 </ul>
               </li>
+               -->
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -79,19 +88,6 @@
 
       <!-- Begin page content -->
       <div class="container">
-	  <div id="mainmenu">
-		<?php $this->widget('zii.widgets.CMenu',array(
-			'items'=>array(
-				array('label'=>'Home', 'url'=>array('/site/index')),
-				array('label'=>'Search', 'url'=>array('/cert/searchCert')),
-				//array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
-				array('label'=>'我的证书', 'url'=>array('/user/index')),
-				array('label'=>'Management', 'url'=>array('/admin/default/index'), 'visible'=>!Yii::app()->user->isGuest && Yii::app()->user->role != 0),
-				array('label'=>'管理员(稍后隐藏)', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
-				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
-			),
-		)); ?>
-		</div>
       	<?php echo $content; ?>
       </div>
     </div>

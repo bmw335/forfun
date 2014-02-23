@@ -34,7 +34,7 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			// enable cookie-based authentication
-			'loginUrl'=>array('qqLogin/index'),
+			'loginUrl'=>array('login/index'),
 			'allowAutoLogin'=>true,
 		),
 		// uncomment the following to enable URLs in path-format

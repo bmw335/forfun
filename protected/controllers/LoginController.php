@@ -1,13 +1,13 @@
 <?php
 require_once(dirname(__FILE__)."/../API/qqConnectAPI.php");
-class QqLoginController extends Controller
+class LoginController extends Controller
 {
 	public function actionIndex()
 	{
 		$this->render('index');
 	}
 	
-	public function actionLogin()
+	public function actionQqLogin()
 	{	
 		$code = Yii::app ()->request->getParam ( 'code' );
 		$qc = new QC();
