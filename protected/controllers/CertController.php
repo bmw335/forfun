@@ -193,6 +193,42 @@ class CertController extends Controller
 	
 	public function actionSaveCert()
 	{
+		$certificate = $this->getCertFromRequest();
+		
+		//FIXME find a better way to handle the exception
+		if(!$certificate->save()){
+			throw new CHttpException ( 500, '数据库错误' );
+		}
+		$this->render ( 'saveCert');
+	}
+	
+	public function actionDeleteCert()
+	{
+	}
+	
+	public function actionSubmitCert()
+	{
+		$certificate = $this->getCertFromRequest();
+		if($this->validateBeforeSubmit($certificate)){
+			$certificate->save();
+			$response = array("result" => "ok",
+					"cert_id" => $certificate->id);
+		}else{
+			$response = array("result" => "error");
+		}
+		echo json_encode($response);
+	}
+	
+	private function validateBeforeSubmit($certificate){
+		if(empty($certificate->lover_1_name) || empty($certificate->lover_1_province) || empty($certificate->lover_1_city)
+		|| empty($certificate->lover_2_name) || empty($certificate->lover_2_province) || empty($certificate->lover_2_city)
+		|| empty($certificate->love_oath) || empty($certificate->count_down_month)){
+			return false;
+		}
+		return true;
+	}
+	
+	private function getCertFromRequest(){
 		$cert_id = Yii::app ()->request->getParam ( 'cert_id' );
 		$uploadedImageName = Yii::app ()->request->getParam ( 'uploadedImageName' );
 		
@@ -225,22 +261,6 @@ class CertController extends Controller
 		//$lovecert->public_date = date ( 'Y-m-d H:i:s', time () );
 		$certificate->create_time = date ( 'Y-m-d H:i:s', time () );
 		$certificate->photo_path = $uploadedImageName;
-		
-		//FIXME find a better way to handle the exception
-		if(!$certificate->save()){
-			throw new CHttpException ( 500, '数据库错误' );
-		}
-		$this->render ( 'saveCert');
-	}
-	
-	public function actionDeleteCert()
-	{
-	
-	}
-	
-	public function actionSubmitCert()
-	{
-		$cert_id = Yii::app ()->request->getParam ( 'cert_id' );
-		echo "ok";
+		return $certificate;
 	}
 }

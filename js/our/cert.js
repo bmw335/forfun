@@ -35,30 +35,23 @@ function saveDraftCert(){
 }
 
 function validateAndSubmit(){
-//	$.post(BASE_URL+"/index.php/cert/submitCert", 
-//			$("#testform").serialize()
-//	);
-	
+	if(!validateBeforeSubmit()){
+		return;
+	}
 	$.ajax({
 		type: 'POST',
 		url: BASE_URL+"/index.php/cert/submitCert",
 		data: $("#frm").serialize(),
 		success: function(response){
-			alert("validateAndSubmit success:"+response);
+			alert("submit cert success: cert_id="+response.cert_id);
 		},
 		dataType: 'json'
 	});
-	
-//	if(!validateBeforeSubmit()){
-//		return false;
-//	}
-//	var frm = $('#frm');
-//	frm.attr("action", BASE_URL+"/index.php/cert/submitCert");
 }
 
 function validateBeforeSubmit(){
 	var lover_1_name = $('#lover_1_name').val();
-	alert(lover_1_name);
-	return false;
+	alert("should validate fields with *");
+	return true;
 }
 
