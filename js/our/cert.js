@@ -50,8 +50,24 @@ function validateAndSubmit(){
 }
 
 function validateBeforeSubmit(){
-	var lover_1_name = $('#lover_1_name').val();
-	alert("should validate fields with *");
+	var lover_1_name = $.trim($('#lover_1_name').val());
+	var lover_1_province = $.trim($('#lover_1_province').val());
+	var lover_1_city = $.trim($('#lover_1_city').val());
+	
+	var lover_2_name = $.trim($('#lover_2_name').val());
+	var lover_2_province = $.trim($('#lover_2_province').val());
+	var lover_2_city = $.trim($('#lover_2_city').val());
+	
+	var love_oath = $.trim($('#love_oath').val());
+	var count_down_month = $.trim($('#count_down_month').val());
+	var	uploadedImageName = $.trim($('#uploadedImageName').val());
+	
+	if(lover_1_name.length == 0 || lover_1_province.length == 0 || lover_1_city.length == 0
+			||lover_2_name.length == 0 || lover_2_province.length == 0 || lover_2_city.length == 0
+			||love_oath.length == 0 || count_down_month.length == 0 || uploadedImageName.length == 0){
+		alert("please fill all fields with *");
+		return false;
+	}
 	return true;
 }
 

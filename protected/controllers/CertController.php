@@ -222,7 +222,7 @@ class CertController extends Controller
 	private function validateBeforeSubmit($certificate){
 		if(empty($certificate->lover_1_name) || empty($certificate->lover_1_province) || empty($certificate->lover_1_city)
 		|| empty($certificate->lover_2_name) || empty($certificate->lover_2_province) || empty($certificate->lover_2_city)
-		|| empty($certificate->love_oath) || empty($certificate->count_down_month)){
+		|| empty($certificate->love_oath) || empty($certificate->count_down_month) || empty($certificate->photo_path)){
 			return false;
 		}
 		return true;
