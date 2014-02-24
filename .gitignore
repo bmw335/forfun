@@ -1,6 +1,7 @@
 .project
 .buildpath
 .settings
+.gitignore
 assets/*
 protected/runtime/*
 protected/runtime/gii-1.1.13/*

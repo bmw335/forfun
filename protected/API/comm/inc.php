@@ -1,2 +1,0 @@
-<?php die('forbidden'); ?>
-{"appid":"101022392","appkey":"8b76a7f99b8426767603c9cbff90b5db","callback":"http://www.aiqingzhengshu.com/forfun/index.php/qqLogin/login","scope":"get_user_info","errorReport":true,"storageType":"file","host":"localhost","user":"root","password":"root","database":"test"}
