@@ -199,12 +199,18 @@ class CertController extends Controller
 		if(!$certificate->save()){
 			throw new CHttpException ( 500, '数据库错误' );
 		}
-		$this->render ( 'saveCert');
+		//$this->render ( 'saveCert');
+		$this->redirect($this->createUrl('user/index'));
 	}
 	
 	public function actionShowCert()
 	{
-		$this->render ( 'showCert');
+		$cert_id = Yii::app ()->request->getParam ( 'cert_id' );
+		if(empty($cert_id)){
+			return;
+		}
+		$certificate = Certificate::model()->findByPk($cert_id);
+		$this->render ( 'showCert', array("certificate" => $certificate));
 	}
 	
 	public function actionDeleteCert()
@@ -215,6 +221,9 @@ class CertController extends Controller
 	{
 		$certificate = $this->getCertFromRequest();
 		if($this->validateBeforeSubmit($certificate)){
+			$certificate->is_draft = 0;
+			$certificate->submit_time = date ( 'Y-m-d H:i:s');
+			$certificate->public_date = date('Y-m-d', strtotime('+'.$certificate->count_down_month.' month'));
 			$certificate->save();
 			$response = array("result" => "ok",
 					"cert_id" => $certificate->id);

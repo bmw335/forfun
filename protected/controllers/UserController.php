@@ -27,13 +27,16 @@ class UserController extends Controller
 		//FIXME mock user_id temporarily
 // 		$mock_user_id = Yii::app()->params['mock_user_id'];
 		$cert_id = null;
+		$is_draft = 1;
 		$certificate = Certificate::model()->find('user_id=:user_id', array(':user_id' => Yii::app()->user->id));
 		if($certificate){
 			$cert_id = $certificate->id;
+			$is_draft = $certificate->is_draft;
 		}
 		$user = User::model()->findByPk(Yii::app()->user->id);
 		$this->render('index', array("cert_id" => $cert_id,
-		"point" => $user->point));
+				"is_draft" => $is_draft,
+				"point" => $user->point));
 	}
 	
 	public function actionSaveProfile()

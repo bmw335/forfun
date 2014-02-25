@@ -44,6 +44,7 @@ function validateAndSubmit(){
 		data: $("#frm").serialize(),
 		success: function(response){
 			alert("submit cert success: cert_id="+response.cert_id);
+			window.open(BASE_URL+"/index.php/cert/showCert?cert_id="+response.cert_id,"_self");
 		},
 		dataType: 'json'
 	});
