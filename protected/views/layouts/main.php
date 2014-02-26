@@ -55,7 +55,9 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>">爱情证书<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png"></a>
+            <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png">
+			<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/love-font.png"></a>
           </div>
           <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
@@ -95,7 +97,7 @@
 
     <div id="footer">
       <div class="container">
-        <p class="text-muted">沪ICP备13008256-2号</p>
+        <p class="text-muted">爱情证书 ©2014 沪ICP备13008256-2号</p>
       </div>
     </div>
 </body>
