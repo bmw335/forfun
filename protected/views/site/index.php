@@ -85,7 +85,8 @@ $this->pageTitle=Yii::app()->name;
     <span id="black_linen_v2" class="change" title="black_linen_v2">&nbsp;</span>    
     <span id="random_grey_variations" class="change" title="random_grey_variations">&nbsp;</span>
     <span id="tactile_noise" class="last change" title="tactile_noise">&nbsp;</span>
-    
+    <div class="hr"></div> 
+    <button id="saveColor" type="button" class="btn btn-primary">保存</button>
   </div>
 
 

@@ -61,7 +61,7 @@
           </div>
           <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-				<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/user">我的证书</a></li>
+				
 				<?php if(!Yii::app()->user->isGuest && Yii::app()->user->role != 0){?><li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/admin/default/index">管理员</a></li><?php }?>
 				<li>
 					<?php if(Yii::app()->user->isGuest){?>
