@@ -20,7 +20,7 @@ class UserIdentity extends CUserIdentity
 				//new registered user, save it.
 				$user = new User();
 				$user->qq_uid = $this->username;
-				$user->nick_name = "ImNormalUser(openID:".$user->qq_uid.")";
+				$user->nick_name = "not set. use qq nickname as default";
 				if(!$user->save()){
 					throw new CHttpException ( 500, '数据库错误' );
 				}
@@ -37,7 +37,6 @@ class UserIdentity extends CUserIdentity
 		}
 		if(!$this->errorCode){
 			$this->setState('id', $user->id);
-			$this->setState('nick_name', $user->nick_name);
 			$this->setState('role', $user->role);
 		}
 		return !$this->errorCode;
