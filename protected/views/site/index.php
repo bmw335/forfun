@@ -93,6 +93,6 @@ $this->pageTitle=Yii::app()->name;
 <?php if(Yii::app()->user->isGuest){?>
 	<a href="#" onclick='qqLogin()'><img src="<?php echo Yii::app()->baseUrl; ?>/img/qq-login.png" class="img-responsive" alt="Responsive image"></a>
 <?php }else{?>
-	<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout">Logout (<?php echo Yii::app()->user->name;?>)</a>
+	<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout"><img src="<?php echo Yii::app()->user->qq_icon; ?>" style="width:auto;max-height:20px;"></img>Logout (<?php echo Yii::app()->user->nickname;?>)</a>
 <?php }?>
 </div>
