@@ -56,7 +56,6 @@
               <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="<?php echo Yii::app()->request->baseUrl; ?>">
-			 爱情证书<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png"></img>
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/logo.png">
 			<img src="<?php echo Yii::app()->request->baseUrl; ?>/img/love-font.png"></a>
           </div>
@@ -68,7 +67,7 @@
 					<?php if(Yii::app()->user->isGuest){?>
 						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/login">登录</a>
 					<?php }else{?>
-						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout"><img src="<?php echo Yii::app()->user->qq_icon; ?>" style="width:auto;max-height:20px;"></img>Logout (<?php echo Yii::app()->user->nickname;?>)</a>
+						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout"><img src="<?php echo Yii::app()->user->qq_icon; ?>" style="width:auto;max-height:20px;"></img>Logout (<?php echo Yii::app()->user->nick_name;?>)</a>
 					<?php }?>
 				</li>
 	             <!-- 
