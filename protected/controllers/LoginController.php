@@ -17,9 +17,15 @@ class LoginController extends Controller
 			$access_code = $qc->qq_callback();
 			$openID = $qc->get_openid();
 			
+			$accessToken = $qc->get_access_token();
+			$qc2 = new QC($accessToken, $openID);
+			$result = $qc2->get_user_info();
+			
 			$userIdentity = new UserIdentity($openID,'');
 			$userIdentity->setIsQqLogin(true);
 			if($userIdentity->authenticate()){
+				$userIdentity->setState("nickname", $result["nickname"]);
+				$userIdentity->setState("qq_icon", $result["figureurl_qq_1"]);
 				Yii::app()->user->login($userIdentity);
 				$this->redirect(Yii::app()->user->returnUrl);
 			}else{
