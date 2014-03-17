@@ -200,7 +200,10 @@ class CertController extends Controller
 			throw new CHttpException ( 500, '数据库错误' );
 		}
 		//$this->render ( 'saveCert');
-		$this->redirect($this->createUrl('user/index'));
+// 		$this->redirect($this->createUrl('user/index'));
+		$response = array("result" => "ok",
+				"cert_id" => $certificate->id);
+		echo json_encode($response);
 	}
 	
 	public function actionShowCert()
