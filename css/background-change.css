@@ -38,7 +38,7 @@
 .wood_pattern, #wood_pattern { background:url(../img/bg/patterns/wood_pattern.png) repeat; }
 
 #toggle { 
-	position:fixed;
+	position:absolute;
 	top:80px;
 	left:0;
 	display:block;

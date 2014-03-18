@@ -62,13 +62,13 @@
           </div>
           <div class="collapse navbar-collapse navbar-right">
             <ul class="nav navbar-nav">
-				<li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/user">我的证书</a></li>
+				
 				<?php if(!Yii::app()->user->isGuest && Yii::app()->user->role != 0){?><li><a href="<?php echo Yii::app()->request->baseUrl; ?>/index.php/admin/default/index">管理员</a></li><?php }?>
 				<li>
 					<?php if(Yii::app()->user->isGuest){?>
-						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/login">登录</a>
+						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/login" style="padding-top:15px;">登录</a>
 					<?php }else{?>
-						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout"><img src="<?php echo Yii::app()->user->qq_icon; ?>" style="width:auto;max-height:20px;"></img>Logout (<?php echo Yii::app()->user->nick_name;?>)</a>
+						<a href="<?php echo Yii::app()->request->baseUrl;?>/index.php/site/logout" style="padding:9px 15px;"><img src="<?php echo Yii::app()->user->qq_icon; ?>" style="width:auto;max-height:32px;"></img>&nbsp&nbsp退出</a>
 					<?php }?>
 				</li>
 	             <!-- 

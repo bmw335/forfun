@@ -13,7 +13,7 @@ class UserController extends Controller
 	{
 		return array(
 				array('allow',
-						'actions'=>array('index'),
+						'actions'=>array('index', 'saveBackground'),
 						'users'=>array('@'),
 				),
 				array('deny',  // deny all users
@@ -36,7 +36,19 @@ class UserController extends Controller
 		$user = User::model()->findByPk(Yii::app()->user->id);
 		$this->render('index', array("cert_id" => $cert_id,
 				"is_draft" => $is_draft,
-				"point" => $user->point));
+				"point" => $user->point,
+				"background_color" => $user->background_color
+		));
+	}
+	
+	public function actionSaveBackground()
+	{
+		$background = Yii::app ()->request->getParam ( 'background' );
+		if(!empty($background)){
+			$user = User::model()->findByPk(Yii::app()->user->id);
+			$user -> background_color = $background;
+			$user -> update();
+		}
 	}
 	
 	public function actionSaveProfile()

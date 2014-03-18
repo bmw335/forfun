@@ -16,6 +16,7 @@
  * @property string $birthday
  * @property string $register_time
  * @property integer $point
+ * @property string $background_color
  */
 class User extends CActiveRecord
 {
@@ -38,7 +39,7 @@ class User extends CActiveRecord
 			array('nick_name', 'required'),
 			array('role, is_male, point', 'numerical', 'integerOnly'=>true),
 			array('qq_uid, email', 'length', 'max'=>320),
-			array('user_name, password, real_name', 'length', 'max'=>64),
+			array('user_name, password, real_name, background_color', 'length', 'max'=>64),
 			array('nick_name', 'length', 'max'=>128),
 			array('birthday, register_time', 'safe'),
 			// The following rule is used by search().
@@ -76,6 +77,7 @@ class User extends CActiveRecord
 			'birthday' => 'Birthday',
 			'register_time' => 'Register Time',
 			'point' => 'Point',
+			'background_color' => 'Background Color'
 		);
 	}
 
